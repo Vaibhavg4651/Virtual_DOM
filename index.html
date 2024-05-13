@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Virtual DOM Project</title>
+    <link rel="stylesheet" href="assets/application.css">
+    <link rel='shortcut icon' type='image/x-icon' href='assets/favicon.ico' />
+    <script type="text/javascript" src="scripts/node_converter.js"></script>
+    <script type="text/javascript" src="scripts/vdom_differ.js"></script>
+    <script type="text/javascript" src="todos.js"></script>
+    <script type="text/javascript">
+
+      document.addEventListener('DOMContentLoaded', (e) => {
+         const root = document.getElementsByClassName("root");
+
+         window.old = DOMtoVirtual(root[0]);
+         window.modified_content = DOMtoVirtual(root[1]);
+         window.insertion = DOMtoVirtual(root[2]);
+         window.deletion = DOMtoVirtual(root[3]);
+         window.mixed = DOMtoVirtual(root[4]);
+      });
+    </script>
+  </head>
+  <body>
+    <header id="info">
+      <h4>Virtual DOM Diffing Algorithm Demonstration Project</h4>
+      <ul>
+        <li>
+          This demo website provides a simple visualization of how React.js implements
+          the virtual DOM (Document Object Model).
+        </li>
+        <li>
+          The boxes on the left-hand side are different variations of a simple todo list. Clicking on any two will
+          show their corresponding vDOM representations in the right-hand boxes.
+          After clicking <i>Diff vDOMs</i> the differences between the two will be highlighted
+          to show how elements have been added, removed or modified.
+        </li>
+        <li>
+          Click <i>Reset</i> to try again.
+        </li>
+      </ul>
+      </br>
+      <section>
+        All of these vDOM comparisons are being made in the moment by a simplified
+        recreation of the virtual DOM diffing algorithm (link to source code below).
+      </br>
+      </br>
+        A virtual DOM Node is a POJO (Plain Old Javascript Object) containing a few
+        pieces of key information:
+        <ol>
+          <li>Type: The type of HTML element being represented</li>
+          <li>Props: HTML attributes or React data being passed into element</li>
+          <li>Children: (Key in Props object) An array of vDOM nodes nested in the element</li>
+          <li>Key: Used to distinguish vDOM nodes in lists (not used by HTML)</li>
+          <li>Ref: A pointer to the corresponding HTML DOM Node</li>
+          <li>
+            $$typeof: (Not used in my version) React.js uses this to protect against
+            malicious user input
+          </li>
+        </ol>
+      </section>
+    </header >
+
+    <aside id="oldvDOM"></aside>
+
+    <button id="diff">Diff vDOM's</button>
+    <button id="reset">Reset</button>
+
+    <aside id="newvDOM"></aside>
+
+    <!-- old -->
+    <div id="old" class="todo-box">
+      <h3 style="color:pink;">Original</h3>
+
+      <main class="root">
+        <h1>Todo List</h1>
+        <ul id="todo-ul">
+          <li id="1" class="serif">Buy Eggs</li>
+          <li id="2" class="italic">Buy Milk</li>
+          <li id="3">Buy Dog Food</li>
+          <li id="4">Wash Car</li>
+        </ul>
+      </main>
+    </div>
+
+    <!-- new_content -->
+    <div id="modified_content" class="todo-box">
+      <h3 style="color:blue;">Modified Content</h3>
+
+      <main class="root">
+        <h1>Todo List</h1>
+        <ul id="todo-ul">
+          <li id="1" class="serif">Buy Eggs</li>
+          <li id="2" class="bold">Buy Milk</li>
+          <li id="3">Return Library Books</li>
+          <li id="4">Wash Car</li>
+        </ul>
+      </main>
+    </div>
+
+    <!-- new_insertion -->
+    <div id="insertion" class="todo-box">
+      <h3 style="color:orange;">Inserted Elements</h3>
+
+      <main class="root">
+        <h1>Todo List</h1>
+        <ul id="todo-ul">
+          <li id="1" class="serif">Buy Eggs</li>
+          <li id="2" class="italic">Buy Milk</li>
+          <li id="3">Buy Dog Food</li>
+          <li id="4">Wash Car</li>
+          <li id="5">Make Doctors Appointment</li>
+        </ul>
+      </main>
+    </div>
+
+    <!-- new_deletion -->
+    <div id="deletion" class="todo-box">
+      <h3 style="color:purple;">Deleted Elements</h3>
+
+      <main class="root">
+        <h1>Todo List</h1>
+        <ul id="todo-ul">
+          <li id="1" class="serif">Buy Eggs</li>
+
+          <li id="3">Buy Dog Food</li>
+          <li id="4">Wash Car</li>
+        </ul>
+      </main>
+    </div>
+
+    <!-- new_mixed -->
+    <div id="mixed" class="todo-box">
+      <h3 style="color:brown;">Combination of Changes</h3>
+
+      <main class="root">
+        <h1>New Todo List</h1>
+        <ul id="todo-ul">
+          <li id="1" class="serif">Buy Eggs</li>
+
+          <li id="3">Buy Dog Food</li>
+          <li id="4">Wash Car</li>
+        </ul>
+      </main>
+    </div>
+
+    <footer id="links">
+      <a href="https://musicpulpite.github.io/">Visit my Personal Portfolio Website</a> ||
+      <a href="https://github.com/musicpulpite/VirtualDOM-Project">See Source Code Here</a>
+    </footer>
+  </body>
+</html>

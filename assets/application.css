@@ -1,0 +1,101 @@
+.todo-box {
+  display: block;
+  width: 300px;
+  height: 250px;
+
+  border: 1px solid black;
+  margin-bottom: 10px;
+  margin-left: 10px;
+
+  padding-left: 10px;
+}
+
+.todo-box:hover {
+  cursor: pointer;
+}
+
+.serif {
+  font-family: sans-serif;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.old {
+  border: 3px solid red;
+}
+
+.new {
+  border: 3px solid green;
+}
+
+aside {
+  position: absolute;
+
+  width: 300px;
+  height: 600px;
+
+  overflow-y: scroll;
+
+  margin-bottom: 10px;
+}
+
+#info {
+  position: fixed;
+  top: 10px;
+  left: 350px;
+
+  width: calc(100% - 100px - 300px - 300px);
+  height: auto;
+
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  font-size: 20px;
+}
+
+#info header {
+  font-weight: 600;
+
+  margin-bottom: 10px;
+}
+
+#oldvDOM {
+  top: 10px;
+  right: 20px;
+
+  border: 2px solid red;
+}
+
+#newvDOM {
+  top: 690px;
+  right: 20px;
+
+  border: 2px solid green;
+}
+
+#diff {
+  position: absolute;
+  top: 640px;
+  right: 170px;
+}
+
+#reset {
+  position: absolute;
+  top: 640px;
+  right: 100px;
+}
+
+#links {
+  position: fixed;
+  bottom: 20px;
+  left: 350px;
+
+  font-size: 18px;
+}
