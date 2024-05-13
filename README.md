@@ -2,11 +2,10 @@
 In this project I replicated the basic functionality of the React.js virtual DOM and virtual DOM diffing algorithm using vanilla Javascript (including the default DOM API).  
 
 See demo of this project here:  
-[VirtualDOM-Project](https://musicpulpite.github.io/VirtualDOM-Project/)
+[VirtualDOM-Project](https://vaibhavg4651.github.io/Virtual_DOM/)
 
 I took inspiration from the following sources but this exact implementation is entirely my own:  
-1. [Create your own virtual DOM to understand it(part 1)](https://aibolik.github.io/blog/create-your-own-virtual-dom-to-understand-it-part-1)  
-2. [How to write your own virtual DOM](https://medium.com/@deathmood/how-to-write-your-own-virtual-dom-ee74acc13060)  
+[Create your own virtual DOM to understand it(part 1)](https://aibolik.github.io/blog/create-your-own-virtual-dom-to-understand-it-part-1)    
 
 I also referenced the React documentation/ developer pages in order to learn the fundamental theory:  
 1. [Reconciliation | React](https://shripadk.github.io/react/docs/reconciliation.html)
